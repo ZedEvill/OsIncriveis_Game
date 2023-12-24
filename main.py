@@ -56,16 +56,21 @@ def perguntas_super_humano():
                                     print(f"Seu personagem é a {personagem.capitalize()}!")
                 #HOMENS FAMILIA PERA
                 elif cabelo == "nao" or "não":
-                    perguntas_Npreto = {
-                    "Roberto Pera": "Seu super heroi tem super força? (Sim/Não/Não Sei): ",
-                    "Flexa Pera": "Seu super heroi está sempre com pressa? (Sim/Não/Não Sei): "  ,                    
-                    "Zezé Pera": "Seu super heroi é um bebê metamorfo? (Sim/Não/Não Sei): ",
-                    }
-                    for personagem, pergunta in perguntas_Npreto.items():
-                                resposta_Npreto = input(pergunta).lower()
-                                if resposta_Npreto == "sim":
-                                    print(f"Seu personagem é a {personagem.capitalize()}!")
-                                    return
+                    fogo = input("Seu personagem tem poder de fogo? (Sim/Não/Não Sei):")
+                    if fogo == "sim":
+                         print("Seu personagem é o Zezé Pera")
+                         return
+                    elif fogo == "não" or fogo == "nao":
+                        perguntas_Npreto = {
+                        "Roberto Pera": "Seu super heroi tem super força? (Sim/Não/Não Sei): ",
+                        "Flexa Pera": "Seu super heroi está sempre com pressa? (Sim/Não/Não Sei): "  ,                    
+                        "Zezé Pera": "Seu super heroi é um bebê metamorfo? (Sim/Não/Não Sei): ",
+                        }
+                        for personagem, pergunta in perguntas_Npreto.items():
+                                    resposta_Npreto = input(pergunta).lower()
+                                    if resposta_Npreto == "sim":
+                                        print(f"Seu personagem é a {personagem.capitalize()}!")
+                                        return
 
             #GRUPO 2 - AMIGO DA FAMILIA
             elif caracteristica == "amigo_familia":
