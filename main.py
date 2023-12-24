@@ -1,5 +1,10 @@
 def main():
-    input("Pense em um personagem do universo dos incriveis, e eu tentarei adivinhar! \n Pressione Enter quando estiver pronto para começar...")
+    input("""        
+          ==================================================================================
+               Pense em um personagem do universo dos incriveis, e eu tentarei adivinhar! 
+          ==================================================================================
+               Pressione Enter quando estiver pronto(a) para começar...
+          ==================================================================================""")
 
     #definindo se o persaongem é heroi ou não:
     personagem = input("Seu personagem é um super heroi? (Sim/Não/Não Sei): ").lower()
@@ -16,9 +21,9 @@ def main():
     elif personagem == "não" or "nao":
         personagem_outros = input("Seu personagem é humano? (Sim/Não/Não Sei): ").lower()
         if personagem_outros == "sim": 
-            perguntas_humano()
+            perguntas_humanos()
         elif personagem_outros == "não" or "nao":
-            print("Seu personagem é uma das versões do Omnidroid")
+            print("Seu personagem é o Omnidroid")
             
 
     elif personagem == "não sei" or "nao sei":
@@ -127,13 +132,24 @@ def perguntas_morreram():
             #Informações:
             if resposta == "nao sei" or resposta == "não sei":
                 if caracteristica == "mortes_capa":
-                     print("EDNA diz: Não use CAPA! eis os heróis que morreram por usar capa:\n Homem trovão, Strato Gata, Super Tchibum, Dinamite e Mega Homem")
-                     input("Pressione qualquer tecla para continuar...")
-                     break
+                      print("""
+                    =============================================================================
+                       EDNA diz: Não use capa! Os heróis que morreram por esta razão foram:
+                       Homem trovão, Strato Gata, Super Tchibum, Dinamite e Mega Homem
+                    =============================================================================""")
+                      input("Pressione qualquer tecla para continuar jogando...")
+                      break
+                      
+                      
+                     
                 elif caracteristica == "fantasmaticos":
-                    print("Os heróis que faziam parte dos fantasmáticos eram: Vidente, Onda Psiquica, Raui de plasma, Ventania e Olho laser")
-                    input("Pressione qualquer tecla para continuar...")
-                    break
+                      print("""
+                    =============================================================================
+                       Os heróis que faziam parte dos fantasmáticos eram:
+                       Vidente, Onda Psiquica,Raio de plasma, Ventania e Olho laser
+                    =============================================================================""")
+                      input("Pressione qualquer tecla para continuar jogando...")
+                      break
 
             if resposta == "sim":
                 #GRUPO 1 - Mortos pela capa 
@@ -162,16 +178,28 @@ def perguntas_morreram():
                     homem_fant = input("Seu personagem é um homem? (Sim/Não/Não Sei):").lower()
                     if homem_fant == "nao" or homem_fant == "não":
                          print("Sua personagem é Onda Psiquica!")
+                         return
 
                     elif homem_fant == "sim":
                         #Lider dos fantasmaticos
                         lider = input("Seu personagem foi lider dos fantasmaticos? (Sim/Não/Não Sei):").lower()
+
+                        
                         if lider == "sim":
                             print("Seu personagem é o Vidente!")
                             return
+                        
+                        elif lider == "nao sei":
+                             print("""
+                    =============================================================================
+                       Os lider dos fantasmáticos tinha poder de telepatia e lia mentes.
+                    =============================================================================""")
+                             input("Pressione qualquer tecla para continuar jogando...")
+                             break
+                            
                         elif lider == "não" or lider == "nao":
                             perguntas_homem_fant = {
-                            "Olho Laser": "Sr. Incrivel interage com este personagem quando esta em apuros no primeiro filme? (Sim/Não/Não Sei): ",
+                            "Olho Laser": "Você é a Duda, e esta jogando pela primeira vez? (Sim/Não/Não Sei): ",
                             "Ventania": "Seu herói tem o poder de criar e controlar ventos? (Sim/Não/Não Sei): "  ,                    
                             "Raio de Plasma": "Seu herói tem poder de disparar raios de plasma? (Sim/Não/Não Sei): ",
                             }
@@ -203,7 +231,75 @@ def perguntas_morreram():
                                         print(f"Seu personagem é a {personagem.capitalize()}!")
                                         return            
 
+def perguntas_humanos():
+    perguntas_humanos = {
+        "vilao": "Seu personagem é uma vilã ou vilão? (Sim/Não/Não Sei): ",
+        "memoria": "Seu personagem teve a memória apagada? (Sim/Não/Não Sei): ",
+        "Hfeminino": "Sua personagem é uma mulher? (Sim/Não/Não Sei): ",
+        "Hmasculino": "Seu personagem é um homem? (Sim/Não/Não Sei): "
+    }
 
+    for caracteristica, pergunta in perguntas_humanos.items():
+        resposta = input(pergunta).lower()
+        if resposta == "sim":
+            #GRUPO 1 - VILAO 
+            if caracteristica == "vilao":
+                #Vila - MULHER
+                vilaoF = input("A personagem é uma mulher? (Sim/Não/Não Sei):").lower()
+                if vilaoF == "sim":
+                    print("Sua personagem é a Evelyn Deavor!!!")
+
+                #Vilao Homem
+                elif vilaoF == "nao" or "não":
+                        perguntas_vilaoM = {
+                        "Bochecha (Sindrome)": "Seu super heroi tem super força? (Sim/Não/Não Sei): ",
+                        "Escavador:": "Este vilão gosta de cavar e roubar bancos? (Sim/Não/Não Sei): "  ,                    
+                        "Bomb Voyage": "Seu vilão é mimico? (Sim/Não/Não Sei): ",
+                        "Winston Deavor": "Seu vilão é irmão da 'hacker' no filme? (Sim/Não/Não Sei): ",
+                        }
+                        for personagem, pergunta in perguntas_vilaoM.items():
+                                    resposta_vilaoM = input(pergunta).lower()
+                                    if resposta_vilaoM == "sim":
+                                        print(f"Seu personagem é a {personagem.capitalize()}!")
+                                        return
+
+            #GRUPO 2 - Memoria apagadas
+            elif caracteristica == "memoria":
+                deleteM = input("Sua personagem era quem cuidava do Zezé?(Sim/Não/Não Sei):").lower()
+                if deleteM == "sim":
+                     print("Sua personagem é a Karen!")
+                elif deleteM == "nao" or deleteM == "não":
+                     print("Seu personagem é o Toninho!")
+
+            #GRUPO 3 - Mulheres 
+            elif caracteristica == "Hfeminino":
+                perguntas_heroina = {
+                    "Edna Moda": "Sua personagem costuma criar uniformes para os heróis?",
+                    "Mirage": "Sua personagem era assistente do Sindrome Bochecha?",
+                    "Mel": "Sua personagem era esposa do Gelado?",
+                    "Selick": "Sua personagem é uma embaixadora?"
+                }
+                for personagem, pergunta in perguntas_heroina.items():
+                    resposta_heroina = input(pergunta).lower()
+                    if resposta_heroina == "sim":
+                        print(f"Seu personagem é o {personagem.capitalize()}!")
+                        return
+                print("Não consegui identificar quem é sua personagem.")
+
+            #GRUPO 4 - HOMENS
+            elif caracteristica == "Hmasculino":
+                perguntas_herois = {
+                    "Ricardo Dicker": "Seu personagem apaga as memórias de quem sabe demais?",
+                    "Bernardo Braga": "Seu personagem é professor?",
+                    "Gilberto Lima": "Seu personagem era chefe de uma empresa, onde o Sr. Incrível trabalhava?"
+                }
+                for personagem, pergunta in perguntas_herois.items():
+                    resposta_herois = input(pergunta).lower()
+                    if resposta_herois == "sim":
+                        print(f"Seu personagem é o {personagem.capitalize()}!")
+                        return
+                print("Não consegui identificar quem é seu personagem.")
+     
 
 
 #Função final
