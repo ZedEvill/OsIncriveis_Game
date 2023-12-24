@@ -114,34 +114,89 @@ def perguntas_morreram():
         "feminino": "Seu super heroi é feminino? (Sim/Não/Não Sei): ",
         "masculino": "Seu super heroi é masculino? (Sim/Não/Não Sei): "
     }
+    
+    while True:
+        for caracteristica, pergunta in perguntas_morreram_dict.items():
+            resposta = input(pergunta).lower()
 
-    for caracteristica, pergunta in perguntas_morreram_dict.items():
-        resposta = input(pergunta).lower()
-        if resposta == "sim":
+            #Informações:
+            if resposta == "nao sei" or resposta == "não sei":
+                if caracteristica == "mortes_capa":
+                     print("EDNA diz: Não use CAPA! eis os heróis que morreram por usar capa:\n Homem trovão, Strato Gata, Super Tchibum, Dinamite e Mega Homem")
+                     input("Pressione qualquer tecla para continuar...")
+                     break
+                elif caracteristica == "fantasmaticos":
+                    print("Os heróis que faziam parte dos fantasmáticos eram: Vidente, Onda Psiquica, Raui de plasma, Ventania e Olho laser")
+                    input("Pressione qualquer tecla para continuar...")
+                    break
 
-            #GRUPO 1 - Mortos pela capa 
-            if caracteristica == "mortes_capa":
-                #MULHERES Mortas por capa
-                mulher_capa = input("Sua personagem é mulher? (Sim/Não/Não Sei):").lower()
-                if mulher_capa == "sim":
-                    print("Sua personagem é a Strato Gata!")
-                    return
-                #HOMENS MORTOS Pela capa
-                elif mulher_capa == "não" or mulher_capa == "nao":
-                    perguntas_homem_capa = {
-                    "Homem trovão": "Seu herói morreu porque sua capa ficou presa a um foguete? (Sim/Não/Não Sei): ",
-                    "Super Tchibum": "Seu herói morreu sugado por um vortex? (Sim/Não/Não Sei): "  ,                    
-                    "Dinamite": "Seu herói morreu porque sua capa ficou presa ao chão quando saiu voar? (Sim/Não/Não Sei): ",
-                    "Mega Homem": "Seu heroi morreu porque sua capa ficou presa no elevador expresso? (Sim/Não/Não Sei): ",
-                    }
-                    for personagem, pergunta in perguntas_homem_capa.items():
-                                resposta_homem_capa = input(pergunta).lower()
-                                if resposta_homem_capa == "sim":
-                                    print(f"Seu personagem é a {personagem.capitalize()}!")
-                                    return
+            if resposta == "sim":
+                #GRUPO 1 - Mortos pela capa 
+                if caracteristica == "mortes_capa":
+                    #MULHERES Mortas por capa
+                    mulher_capa = input("Sua personagem é mulher? (Sim/Não/Não Sei):").lower()
+                    if mulher_capa == "sim":
+                        print("Sua personagem é a Strato Gata!")
+                        return
+                    #HOMENS MORTOS Pela capa
+                    elif mulher_capa == "não" or mulher_capa == "nao":
+                        perguntas_homem_capa = {
+                        "Homem trovão": "Seu herói morreu porque sua capa ficou presa a um foguete? (Sim/Não/Não Sei): ",
+                        "Super Tchibum": "Seu herói morreu sugado por um vortex? (Sim/Não/Não Sei): "  ,                    
+                        "Dinamite": "Seu herói morreu porque sua capa ficou presa ao chão quando saiu voar? (Sim/Não/Não Sei): ",
+                        "Mega Homem": "Seu heroi morreu porque sua capa ficou presa no elevador expresso? (Sim/Não/Não Sei): ",
+                        }
+                        for personagem, pergunta in perguntas_homem_capa.items():
+                                    resposta_homem_capa = input(pergunta).lower()
+                                    if resposta_homem_capa == "sim":
+                                        print(f"Seu personagem é a {personagem.capitalize()}!")
+                                        return               
+                #Grupo 2 - Fantasmaticos
+                elif caracteristica == "fantasmaticos":
+                    #homens
+                    homem_fant = input("Seu personagem é um homem? (Sim/Não/Não Sei):").lower()
+                    if homem_fant == "nao" or homem_fant == "não":
+                         print("Sua personagem é Onda Psiquica!")
 
-                
-     
+                    elif homem_fant == "sim":
+                        #Lider dos fantasmaticos
+                        lider = input("Seu personagem foi lider dos fantasmaticos? (Sim/Não/Não Sei):").lower()
+                        if lider == "sim":
+                            print("Seu personagem é o Vidente!")
+                            return
+                        elif lider == "não" or lider == "nao":
+                            perguntas_homem_fant = {
+                            "Olho Laser": "Sr. Incrivel interage com este personagem quando esta em apuros no primeiro filme? (Sim/Não/Não Sei): ",
+                            "Ventania": "Seu herói tem o poder de criar e controlar ventos? (Sim/Não/Não Sei): "  ,                    
+                            "Raio de Plasma": "Seu herói tem poder de disparar raios de plasma? (Sim/Não/Não Sei): ",
+                            }
+                            for personagem, pergunta in perguntas_homem_fant.items():
+                                        resposta_homem_fant = input(pergunta).lower()
+                                        if resposta_homem_fant == "sim":
+                                            print(f"Seu personagem é a {personagem.capitalize()}!")
+                                            return             
+                    
+
+                     #Lider dos fantasmaticos
+                    lider = input("Seu personagem foi lider dos fantasmaticos? (Sim/Não/Não Sei):").lower()
+                    if lider == "sim":
+                        print("Seu personagem é o Vidente!")
+                        return
+                    
+
+                    #HOMENS dos Fantasmaticos
+                    elif mulher_capa == "não" or mulher_capa == "nao":
+                        perguntas_homem_capa = {
+                        "Homem trovão": "Seu herói morreu porque sua capa ficou presa a um foguete? (Sim/Não/Não Sei): ",
+                        "Super Tchibum": "Seu herói morreu sugado por um vortex? (Sim/Não/Não Sei): "  ,                    
+                        "Dinamite": "Seu herói morreu porque sua capa ficou presa ao chão quando saiu voar? (Sim/Não/Não Sei): ",
+                        "Mega Homem": "Seu heroi morreu porque sua capa ficou presa no elevador expresso? (Sim/Não/Não Sei): ",
+                        }
+                        for personagem, pergunta in perguntas_homem_capa.items():
+                                    resposta_homem_capa = input(pergunta).lower()
+                                    if resposta_homem_capa == "sim":
+                                        print(f"Seu personagem é a {personagem.capitalize()}!")
+                                        return            
 
 
 
